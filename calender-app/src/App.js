@@ -3,17 +3,19 @@ import "./App.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Month from "./components/Month";
+import EventModal from "./components/EventModal";
 import { getMonth } from "./util";
 import GlobalContext from "./context/GlobalContext";
 
 function App() {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
-  const { monthIndex } = useContext(GlobalContext);
+  const { monthIndex, showEventModal } = useContext(GlobalContext);
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
   return (
     <React.Fragment>
+      {showEventModal && <EventModal />}
       <div className="h-screen flex flex-col">
         <Header />
         <div className="flex flex-1">
