@@ -67,7 +67,7 @@ export default function MiniCalender() {
           </span>
         ))}
         {currentMonth.map((row, i) => (
-          <>
+          <React.Fragment key={i}>
             {row.map((day, index) => (
               <button
                 className={`py-1 w-full ${getDayClass(day)}`}
@@ -80,7 +80,7 @@ export default function MiniCalender() {
                 <span className="text-sm">{day.format("D")}</span>
               </button>
             ))}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>
